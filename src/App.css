@@ -1,0 +1,646 @@
+* {
+    margin: 0;
+    font-family: "Rubik";
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+section {
+    padding: 5% 10%;
+}
+
+:root {
+    --color-primario:   #1E1A20;
+    --color-secundario: #811B62;
+    --color-terciario:  #D9D8D9;
+    --bg:               #ffffff;
+    --texto:            #212529;
+    --card-bg:          #ffffff;
+}
+
+html.oscuro {
+    background-color: #2d2c2e;
+    --bg:      #2d2c2e;
+    --texto:   #e5e5e5;
+    --card-bg: #3a3a3c;
+}
+
+html.oscuro body { 
+    background-color: #2d2c2e; 
+    color: #e5e5e5; 
+}
+
+html.oscuro .text-muted { 
+    color: #aaa !important; 
+}
+
+html.oscuro .cajita { 
+    background: var(--card-bg); 
+}
+
+html.oscuro .borde-cajitas { 
+    background: var(--card-bg); 
+}
+
+html.oscuro h1,html.oscuro h2,html.oscuro h4,html.oscuro h5,html.oscuro h6,html.oscuro p { 
+    color: var(--texto); 
+}
+
+html.oscuro fieldset { 
+    background: var(--card-bg); 
+}
+
+html.oscuro .form-control,
+html.oscuro .form-select { 
+    background:#858585; 
+    color:#e5e5e5; 
+    border-color:#555; 
+}
+
+html.oscuro .form-control:focus,
+html.oscuro .form-select:focus { 
+    background:var(--card-bg); 
+    color:#e5e5e5; 
+}
+
+html.oscuro .coche-card  { 
+    background: var(--card-bg); 
+    border-color: rgba(255,255,255,0.1) !important; 
+}
+
+html.oscuro .ventajas {
+    background-color: #000000 !important;
+}
+
+html.oscuro .textWhite {
+    color: white !important;
+}
+
+html.oscuro .card-body {
+    color: var(--color-secundario);
+    span {
+        color: white !important;
+    }
+}
+
+html.oscuro .cajita-pref {
+    label {
+        color: white !important;
+    }
+    .boton-oscurito {
+        background-color: white !important;
+    }
+}
+
+html.oscuro .card-oscuro {
+    background-color: var(--color-terciario) !important;
+}
+
+.color-texto {
+    color: var(--color-secundario);
+}
+
+html.oscuro .texto-black {
+    color: black;
+}
+
+/* Utilidades */
+.texto-morado { 
+    color: var(--color-secundario) !important; 
+
+}
+.separa-10    { 
+    height: 10px; 
+}
+
+.separa-20    { 
+    height: 20px; 
+}
+
+.separa-30    { 
+    height: 30px; 
+}
+
+.separa-50    { 
+    height: 50px; 
+
+}
+.linea        { 
+    border: 1px solid var(--color-secundario); 
+}
+
+.btn-naked    { 
+    background:none; 
+    border:none; 
+    cursor:pointer; 
+    padding:0; 
+    font-size:inherit; 
+    color:inherit; 
+    font-family:inherit; 
+}
+
+/* Menú navbar */
+.menu {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-primario);
+    align-items: center;
+    padding: 1% 5%;
+    box-shadow: 0 6px 12px 0 rgba(25,42,88,.1);
+    position: relative;
+    z-index: 100;
+    transition: 0.5s;
+}
+
+.menu-desplegable {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.lista {
+    display: flex;
+    list-style: none;
+    gap: 23px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.lista button {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+}   
+
+.lista button:hover { 
+    color: var(--color-secundario); 
+}
+
+.boton-menu-hamburguesa {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.palito {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 6px;
+    background: #ffffff;
+    border-radius: 3px;
+}
+
+.boton-menu-hamburguesa.open .palito:nth-child(1) { 
+    transform: translateY(9px) rotate(45deg);  
+    transition: 0.5s ease-in-out; 
+}
+
+.boton-menu-hamburguesa.open .palito:nth-child(2) { 
+    opacity: 0; 
+}
+
+.boton-menu-hamburguesa.open .palito:nth-child(3) { 
+    transform: translateY(-9px) rotate(-45deg); 
+    transition: 0.5s ease-in-out; 
+}
+
+.capa-oscura {
+    position: fixed;
+    top: 51px; left: 0;
+    width: 100%;
+    height: calc(100% - 51px);
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(4px);
+    display: none;
+    z-index: 999;
+}
+
+.capa-oscura.on { 
+    display: block; 
+}
+
+.boton-reservar, .boton-registro {
+    background-color: var(--color-secundario);
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.boton-reservar:hover, .boton-registro:hover { 
+    filter: brightness(1.2); 
+}
+
+.logo-img {
+    width: 100px;
+}
+
+.boton-admin {
+    color: var(--color-secundario) !important;
+}
+
+/* Banner / Carousel */
+.banner { 
+    padding: 0px; 
+}
+
+#introCarousel,
+.carousel-inner, .carousel-item, .carousel-item.active { 
+    height: 100vh; 
+}
+
+.carousel-item:nth-child(1) {
+    background-image: url('./img/manhart-mh4-gtr-ii-basis-bmw-m4-csl.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.carousel-item:nth-child(2) {
+    background-image: url('./img/mercedes-amg-one-for-sale.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.carousel-item:nth-child(3) {
+    background-image: url('./img/Header_RS5_8W6A.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+/* Accordion BootStrap */
+
+.FAQs {
+    background-color: black;
+}
+
+.accordion{
+    --bs-accordion-btn-icon: url("https://bienestaranahimillan.es/template/estandar/images/flecha.svg") !important;
+    --bs-accordion-btn-active-icon : url("https://bienestaranahimillan.es/template/estandar/images/flecha.svg") !important;
+    --bs-accordion-active-color: #000000 !important;
+    --bs-accordion-active-bg: #ffffff !important;
+    --bs-accordion-btn-icon-transform: rotate(180deg) !important;
+    --bs-accordion-btn-icon-width: 20px !important;
+    --bs-accordion-btn-icon-width-padding-y: 10px !important;
+    --bs-accordion-btn-icon-transition: transform 0.3s ease-in-out !important;
+    --bs-accordion-btn-focus-box-shadow: box-shadow: none !important;
+    --bs-border-radius: 10px;
+
+    .accordion-button{
+        border-radius: 10px;
+        border-bottom: none;
+        height: 75px;
+        padding: 0px 20px 0px 20px;
+        strong{
+            font-size: 18px;
+        }
+    }
+
+    .accordion-body{
+        font-size: 16px;
+        font-weight: 700;
+        text-align: start;
+    }
+
+    .accordion-button::after{
+        background-color: var(--color-secundario);
+        border-radius: 5px;
+        background-position: center;
+        background-size: 10px;
+    }
+
+    .accordion-item {
+        margin-top: 40px;
+        border-radius: 10px;
+        filter: drop-shadow(0 2px 15px rgba(0, 0, 0, 0.06));
+    }
+
+    .accordion-button:hover{
+        color: var(--color-secundario);
+    }
+
+}
+
+/* Sección búsqueda */
+.busqueda { 
+    background-color: black; 
+}
+
+.card-body {
+    border-radius: 5px;
+    background-color: var(--color-secundario) !important;
+    color: var(--card-bg);
+}
+
+.card-body h5, .card-body p, .card-body a, .card-body span {
+    background: transparent !important;
+    border: none;
+}
+
+.card-body a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0px !important;
+}
+
+/* Sección destacados */
+.cajita {
+    border: 1px gray solid;
+    border-radius: 20px;
+}
+
+.cajita .imagen img {
+    border-radius: 20px 0px 0px 20px;
+    height: 200px;
+}
+
+.cajita .datos { 
+    width: 100%; 
+}
+
+.boton-reservar {
+    min-width: 88px ;
+}
+
+/* Sección ventajas */
+.borde-cajitas { 
+    border: 1px gray solid; 
+}
+
+.altura-cajitas { 
+    height: 450px; 
+}
+
+/* Valoraciones */
+.valoraciones { 
+    background-color: var(--color-terciario); 
+}
+
+/* Contacto / Fieldset */
+input[type="email"],
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+    border: none;
+    border-bottom: 1px solid gray;
+    box-shadow: 0px 0.6px 1px 0px gray;
+    background-color: white;
+}
+
+input[type="submit"] {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+input[type="submit"]:hover { 
+    background-color: #b92c8f; 
+}
+
+fieldset {
+    backdrop-filter: blur(3px);
+    padding: 20px !important;
+    padding-top: 35px !important;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+    box-shadow: 0px 8px 30px 0 rgba(0,0,0,0.37);
+    color: #000000;
+    position: relative;
+    background: white;
+}
+
+legend {
+    font-size: 1.5em !important;
+    width: auto !important;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 0 10px !important;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 5px;
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    white-space: nowrap;
+}
+
+select {
+    border-radius: 10px;
+}
+
+/* Ajustes (botón fijo) */
+.ajustes {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+}
+.ajustes img { 
+    max-width: 28px; 
+    height: auto; 
+}
+
+.ajustes img:hover { 
+    transform: rotate(-90deg); 
+    transition: 0.5s ease-in-out; 
+}
+
+/* Página preferencias (cajita centrada) */
+.cajita-pref {
+    min-height: calc(100vh - 51px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cajita-pref fieldset { 
+    width: 380px; 
+}
+
+/* Tarjetas de coche  */
+.coche-card {
+    background: var(--color-terciario);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+}
+.coche-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15) !important;
+}
+
+/* Footer */
+footer { 
+    background-color: black; 
+}
+
+.footy:hover { 
+    color: var(--color-secundario) !important; 
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Estiulos Responsive */
+
+@media (max-width: 1305px) {
+    .menu-desplegable {
+        .lista {
+            li {
+                button {
+                    font-size: 13px;
+                }
+            }
+        }
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 1080px) {
+
+    .cajas-busqueda { 
+        flex-direction: column !important; 
+    }
+
+    .cajas-busqueda .card { 
+        width: 100% !important; 
+    }
+
+    .menu-desplegable {
+        .lista {
+            li {
+                button {
+                    font-size: 10px;
+                }
+            }
+        }
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 880px) {
+    .menu { 
+        padding: 0 !important; 
+    }
+
+    .logo { 
+        margin-left: 10px;
+        .logo-img {
+            width: 70px;
+        }
+    }
+
+    .boton-menu-hamburguesa {
+        display: block;
+        background-color: black;
+        padding: 9px;
+        transition: 0.5s;
+    }
+
+    .menu-desplegable {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 250px;
+        height: 100%;
+        background-color: black;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 51px 0px 40px;
+        transition: 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+        z-index: 1000;
+        overflow-y: auto;
+        .lista {
+            li {
+                button {
+                    font-size: 16px;
+                }
+            }
+        }
+        font-size: 16px;
+    }
+    
+
+    .menu-desplegable.on { 
+        right: 0; 
+    }
+
+    .lista {
+        width: 100%;
+        flex-direction: column;
+        margin: 0; padding: 0;
+        gap: 0;
+    }
+
+    .lista {
+        li {
+            padding: 7%;
+            border-bottom: solid 1px white;
+        }
+    }
+
+    .lista {
+        button {
+            font-size: 14px;
+            padding: 0;
+        }
+    }
+
+    .margin-burger { 
+        margin-bottom: 15px; 
+    }
+
+    .reservar {
+        flex-direction: column;
+        margin-top: auto;
+        width: 100%;
+        padding: 0px 40px;
+    }
+
+    .boton-reservar, .boton-registro {
+        text-align: center;
+        border-radius: 26px;
+        transition: 0.5s;
+        margin-bottom: 10px;
+    }
+
+    .boton-reservar:hover, .boton-registro:hover {
+        background-color: var(--color-secundario) !important;
+        color: white !important;
+    }
+
+    .cajita {
+        flex-direction: column;
+        .cajitav2 {
+            width: 100% !important;
+            border: none !important;
+            border-radius: 20px 0px 0px 0px !important;
+        }
+    }
+}
