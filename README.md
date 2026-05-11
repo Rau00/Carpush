@@ -153,3 +153,14 @@ La aplicación estará disponible en **http://localhost:5173**
 | POST   | `/api/auth/index.php?action=logout`   | Cierre de sesión                                         | Sí   |
 | GET    | `/api/auth/index.php?action=me`       | Usuario autenticado actual                               | Sí   |
 | GET    | `/api/favorites/index.php`            | Favoritos del usuario                                    | Sí   |
+
+
+## Pruebas
+
+![Imagen 1](https://i.postimg.cc/2bwktdzQ/prueba1.png)
+![Imagen 2](https://i.postimg.cc/zbjzQwJY/prueba2.png)
+![Imagen 3](https://i.postimg.cc/347r9fQL/prueba3.png)
+![Imagen 4](https://i.postimg.cc/ygB6npCn/prueba4.png)
+![Imagen 5](https://i.postimg.cc/8FLPRQ9X/prueba5.png)
+![Imagen 6](https://i.postimg.cc/7GDPXtrM/prueba6.png)
+![Imagen 7](https://i.postimg.cc/nsqc4bgr/prueba7.png)
