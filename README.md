@@ -1,6 +1,6 @@
 # CarPush
 
-Plataforma web de compraventa de vehículos desarrollada como proyecto final del ciclo formativo de **DAW** en el IES Ana Luisa Benítez, Las Palmas de Gran Canaria.
+Plataforma web de compraventa de vehículos desarrollada como proyecto final del ciclo formativo de **DAW**
 
 ------
 
